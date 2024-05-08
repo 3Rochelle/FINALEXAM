@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact App</title>
+    <!-- Include AngularJS library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Include your JavaScript file -->
+    <script src="main.js"></script>
+</head>
+<body ng-app="contactApp">
+    <div ng-controller="contactController">
+        <h1>Contact Form</h1>
+        <form ng-submit="submitForm()">
+            <label>Name:</label>
+            <input type="text" ng-model="contact.name" required><br>
+            <label>Email:</label>
+            <input type="email" ng-model="contact.email" required><br>
+            <label>Message:</label>
+            <textarea ng-model="contact.message" required></textarea><br>
+            <button type="submit">Submit</button>
+        </form>
+        
+        <div ng-if="submitted">
+            <h2>Submitted Data</h2>
+            <p>Name: {{ submittedData.name }}</p>
+            <p>Email: {{ submittedData.email }}</p>
+            <p>Message: {{ submittedData.message }}</p>
+        </div>
+
+        <h2>Users</h2>
+        <ul>
+            <li ng-repeat="user in users">{{ user.name }} - {{ user.email }} - {{ user.message }}</li>
+        </ul>
+    </div>
+</body>
+</html>
+
