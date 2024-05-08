@@ -23,6 +23,16 @@ public class MainController {
         Iterable<User> users = userRepository.findAll();
         return ResponseEntity.ok(users);
     }
+    
+    @DeleteMapping("/{id}") // Map DELETE Requests to /api/users/{id}
+    public ResponseEntity<String> deleteUser(@PathVariable("id") Integer id) {
+        if (userRepository.existsById(id)) {
+            userRepository.deleteById(id);
+            return ResponseEntity.ok("User deleted successfully");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
+        }
+    }
 }
 
 
