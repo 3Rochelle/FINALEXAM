@@ -13,10 +13,10 @@ public class GlobalCorsConfiguration {
     public CorsFilter corsFilter() {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
-        config.addAllowedOrigin("http://localhost:8080"); // Allow requests from this origin
-        config.addAllowedMethod("*"); // Allow all HTTP methods
-        config.addAllowedHeader("*"); // Allow all headers
-        config.setAllowCredentials(true); // Allow credentials (e.g., cookies)
+        config.addAllowedOrigin("http://localhost:8080"); 
+        config.addAllowedMethod("*"); 
+        config.addAllowedHeader("*"); 
+        config.setAllowCredentials(true); 
         source.registerCorsConfiguration("/**", config);
         return new CorsFilter(source);
     }
